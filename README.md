@@ -43,7 +43,7 @@ Aggregated analytics tables powering dashboards and performance insights.
 
 ---
 
-## Dashboards
+## Interactive Hockey Analytics Dashboards
 
 ### Performance Overview
 
@@ -51,19 +51,74 @@ Interactive dashboards provide a high-level overview of player and team performa
 
 ![Dashboard Overview](dashboards/powerbi_overview.png)
 
-### Shot Location Analysis
+### 🎯 Shot Miss Map
 
-Visual analysis of shot locations and scoring patterns.
+Visualizes where a player misses the net more or less frequently across the offensive zone.
 
-![Shot Map](dashboards/shot_map.png)
+- Identifies accuracy trends by location
+- Highlights shooting tendencies (left/right bias, high-danger areas)
+- Uses binning + filtering to reduce noise
 
-### Goalie Performance Analysis
-
-Heatmaps and spatial analysis of save percentages by shot location.
-
-![Goalie Heatmap](dashboards/goalie_heatmap.png)
+![Shot Miss Map](dashboards/shot_miss_map.png)
 
 ---
+
+### Penalty Profile: Player vs League Tendencies
+
+Compares a player’s penalty behavior against league averages across multiple contexts.
+
+- Zone-based penalty distribution (O/D/N zone)
+- Game state analysis (leading, tied, trailing)
+- Penalty type breakdown vs league norms
+- Fully interactive filtering for situational insights
+
+![Penalty Profile](dashboards/penalty_profile.png)
+
+---
+
+### Goalie Shot-Location Performance
+
+Analyzes where a goalie concedes goals most frequently across the net.
+
+- Spatial goal rate distribution
+- Identifies high-risk scoring areas
+- Shot volume represented through bin sizing
+
+![Goalie Shot Location](dashboards/goalie_shot_location.png)
+
+---
+
+### Goalie Save % vs League by Shot Type
+
+Breaks down goalie performance by shot type compared to league averages.
+
+- Save % comparison across shot types (wrist, slap, tip-in, etc.)
+- Difference vs league to highlight strengths/weaknesses
+- Shot volume context included for reliability
+
+![Goalie SV%](dashboards/goalie_sv_by_type.png)
+
+---
+
+### Hits Profile: Team vs League
+
+Compares team physical play (hits/60) against league benchmarks across contexts.
+
+- Game state breakdown (winning, tied, losing)
+- Strength state filtering (EV, PP, PK)
+- Division-level comparisons for relative performance
+
+![Hits Profile](dashboards/hits_profile.png)
+
+---
+
+## Dashboard Deep Dives
+
+Each dashboard includes interactive filtering, contextual comparisons, and insight-driven design.
+
+👉 [View detailed breakdowns](docs/dashboard_breakdowns.md)
+
+...
 
 ## Example Data Pipeline
 
