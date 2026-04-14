@@ -59,7 +59,7 @@ Visualizes where a player misses the net more or less frequently across the offe
 - Highlights shooting tendencies (left/right bias, high-danger areas)
 - Uses binning + filtering to reduce noise
 
-![Shot Miss Map](dashboards/shot_miss_map.png)
+![Shot Miss Map](dashboards/Player_Shot_Miss_Map.png)
 
 ---
 
@@ -72,7 +72,7 @@ Compares a player’s penalty behavior against league averages across multiple c
 - Penalty type breakdown vs league norms
 - Fully interactive filtering for situational insights
 
-![Penalty Profile](dashboards/penalty_profile.png)
+![Penalty Profile](dashboards/penaltiesKPI.png)
 
 ---
 
@@ -84,7 +84,7 @@ Analyzes where a goalie concedes goals most frequently across the net.
 - Identifies high-risk scoring areas
 - Shot volume represented through bin sizing
 
-![Goalie Shot Location](dashboards/goalie_shot_location.png)
+![Goalie Shot Location](dashboards/kpiGoalieZones.png)
 
 ---
 
@@ -96,7 +96,7 @@ Breaks down goalie performance by shot type compared to league averages.
 - Difference vs league to highlight strengths/weaknesses
 - Shot volume context included for reliability
 
-![Goalie SV%](dashboards/goalie_sv_by_type.png)
+![Goalie SV%](dashboards/goaliesv.png)
 
 ---
 
@@ -108,7 +108,7 @@ Compares team physical play (hits/60) against league benchmarks across contexts.
 - Strength state filtering (EV, PP, PK)
 - Division-level comparisons for relative performance
 
-![Hits Profile](dashboards/hits_profile.png)
+![Hits Profile](dashboards/HitsPer60TiedEvenStrength.png)
 
 ---
 
