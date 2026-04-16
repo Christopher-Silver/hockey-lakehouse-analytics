@@ -120,19 +120,29 @@ Each dashboard includes interactive filtering, contextual comparisons, and insig
 
 ...
 
-## Example Data Pipeline
+## Pipelines
 
-Data transformations convert raw event logs into structured analytics tables.
+This project uses a Medallion lakehouse design in Azure Databricks to transform raw NHL data into analytics-ready outputs for reporting and dashboarding.
 
-Example pipeline steps include:
+### Bronze
+Bronze pipelines ingest raw schedule and play-by-play data from external hockey sources and store it with ingestion metadata for reproducibility and lineage.
 
-1. Raw event ingestion  
-2. Event normalization  
-3. Feature engineering  
-4. Aggregated performance tables  
-5. Dashboard-ready datasets
+### Silver
+Silver pipelines clean and standardize event, player, and roster data into validated, joinable tables with consistent keys and hockey-specific business logic applied.
 
-Example transformation scripts can be found in the `pipelines/` directory.
+### Gold
+Gold pipelines build curated fact tables, KPI aggregates, BI-facing semantic views, and automated data quality checks to support Power BI dashboards and ad hoc hockey analytics.
+
+### Example pipeline capabilities
+- External API ingestion and incremental loading
+- Event normalization and schema standardization
+- Player and roster conformance
+- Fact table construction for shots, penalties, and hits
+- KPI generation for goalie, shooting, penalty, and physical play analysis
+- BI-friendly serving views for downstream reporting
+- Automated data quality validation and failure logging
+
+Representative transformation scripts are available in the `pipelines/` directory.
 
 ---
 
