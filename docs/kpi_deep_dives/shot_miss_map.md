@@ -74,7 +74,7 @@ With a minimum of 4 shots per bin:
 
 ### Higher Threshold (Cleaner Insight)
 
-![Higher Threshold](dashboards/Player_Shot_Miss_Map-Kempe7Shot100minpdf.png)
+![Higher Threshold](../../dashboards/Player_Shot_Miss_Map-Kempe7Shot100minpdf.png)
 
 With a minimum of 7 shots per bin:
 - Noise is reduced
