@@ -1,4 +1,4 @@
-# Hits per 60 — Team vs League — Deep Dive
+# Hits per 60 - Team vs League - Deep Dive
 
 ## Overview
 
@@ -259,5 +259,4 @@ It transforms a simple stat (hits) into:
 
 ## Key Takeaway
 
-> Physicality is not just about how much a team hits —  
-> it’s about **when, why, and in what context those hits occur.**
+> Context matters; the same number of hits can mean very different things depending on when they happen.
