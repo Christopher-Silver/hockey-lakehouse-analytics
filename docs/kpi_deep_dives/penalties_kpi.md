@@ -1,4 +1,4 @@
-# Penalty Profile: Player vs League Tendencies — Deep Dive
+# Penalty Profile: Player vs League Tendencies - Deep Dive
 
 ## Overview
 
@@ -153,7 +153,7 @@ This enables multi-dimensional analysis.
 ### Insights
 
 - Player took **19 roughing penalties**
-- Net penalties = **-11** → not offsetting (bad sign)
+- Net penalties = **-11** → not offsetting (this is a bad sign)
 
 #### Important Observation
 
@@ -194,8 +194,8 @@ Not driven by a single type:
 - Tripping ↑
 
 👉 Interpretation:
-- This is not a situational issue tied to one behavior
-- It reflects **general lack of discipline in offensive situations**
+- This is not a situational issue tied to one behavior,
+- Rather it reflects **general lack of discipline in offensive situations**
 
 ---
 
