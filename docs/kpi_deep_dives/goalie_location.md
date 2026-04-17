@@ -1,4 +1,4 @@
-# Goalie Shot-Location Performance — Deep Dive
+# Goalie Shot-Location Performance - Deep Dive
 
 ## Overview
 
@@ -77,7 +77,7 @@ Because:
 - all goalies tend to allow more goals from the slot
 - all goalies perform better from low-danger areas
 
-👉 This reflects **league-wide tendencies**, not individual weaknesses
+This reflects **league-wide tendencies**, not individual weaknesses
 
 ---
 
@@ -195,7 +195,7 @@ With higher thresholds:
 
 This dashboard demonstrates an important principle:
 
-> Raw spatial data is not enough — context is everything.
+> Raw spatial data is not enough, context is key.
 
 By comparing performance to league averages, we can:
 
