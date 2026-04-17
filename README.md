@@ -62,9 +62,9 @@ This diagram illustrates the end-to-end data flow from NHL APIs through the Meda
 
 Interactive dashboards provide a high-level view of player and team performance across multiple contexts.
 
-![Dashboard Overview](dashboards/powerbi_overview.png)
+---
 
----## Core KPI Dashboards
+## Core KPI Dashboards
 
 These dashboards are designed to go beyond surface-level statistics and instead answer real hockey questions:
 
