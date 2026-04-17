@@ -241,7 +241,7 @@ dashboards/
     Power BI dashboard screenshots
 
 pipelines/
-    Databricks notebooks and transformation logic
+    Selected (key) databricks notebooks and transformation logic
 
 docs/
     KPI deep dives, Data model, pipeline flow, and design documentation
