@@ -87,10 +87,10 @@ Evaluates how a goalie performs against different shot types relative to league 
 - Supports interactive filtering (clicking shot types updates all visuals)
 
 **Why this matters:**
-Not all goalies are beaten the same way — this reveals *how* to score on them.
+Not all goalies are beaten the same way. This dashboard reveals *how* to score on them.
 
 **Example insight:**
-> Opposing shooters: prioritize deflections against Hellebuyck — his save % drops significantly below league average in those situations.
+> Opposing shooters: prioritize deflections against Hellebuyck - his save % drops significantly below league average in those situations.
 
 ![Goalie SV%](dashboards/goaliesv.png)
 
@@ -108,10 +108,10 @@ Analyzes a player's penalty behavior across context, not just totals.
 - Cross-filtering enables multi-dimensional analysis
 
 **Why this matters:**
-Penalties are situational — this shows *when, where, and why* players become liabilities.
+Penalties are situational. This dashboard shows *when, where, and why* players become liabilities.
 
 **Example insight:**
-> A.J. Greer takes excessive offensive-zone penalties and commits more penalties when leading — a high-risk, undisciplined profile that could impact team success.
+> A.J. Greer takes excessive offensive-zone penalties and commits more penalties when leading - a high-risk, undisciplined profile that could impact team success.
 
 ![Penalty Profile](dashboards/penaltiesKPI.png)
 
@@ -121,7 +121,7 @@ Penalties are situational — this shows *when, where, and why* players become l
 
 ### 3. Goalie Shot-Location Performance
 
-Identifies where a goalie is vulnerable — both in absolute terms and relative to league averages.
+Identifies where a goalie is vulnerable, both in absolute terms and relative to league averages.
 
 - Left chart: raw goal rate by location
 - Right chart: performance vs league baseline (true strengths/weaknesses)
@@ -129,10 +129,10 @@ Identifies where a goalie is vulnerable — both in absolute terms and relative 
 - Spatial analysis across the offensive zone
 
 **Why this matters:**
-Raw shot maps are misleading — this isolates *true weaknesses* compared to other goalies.
+Raw shot maps are misleading. This dashboard isolates *true weaknesses* compared to other goalies.
 
 **Example insight:**
-> Opponents should attack Oettinger from the left circle — he allows more goals than league average from that area, despite being strong in the slot.
+> Opponents should attack Oettinger from the left circle - he allows more goals than league average from that area, despite being strong in the slot.
 
 ![Goalie Shot Location](dashboards/kpiGoalieZones.png)
 
@@ -150,10 +150,10 @@ Visualizes where players miss the net vs shoot accurately, with filtering to con
 - Player-specific shooting tendencies
 
 **Why this matters:**
-Shot selection matters — this reveals where players are effective vs inefficient.
+Shot selection matters. This dashboard reveals where players are effective vs inefficient.
 
 **Example insight:**
-> John Carlson struggles to hit the net from the blue line but is highly accurate in the right circle — coaches can adjust shot selection accordingly.
+> John Carlson struggles to hit the net from the blue line but is highly accurate in the right circle. Coaches can adjust shot selection accordingly.
 
 ![Shot Miss Map](dashboards/Player_Shot_Miss_Map.png)
 
@@ -171,10 +171,10 @@ Compares team physical play across game situations and league context.
 - Context-aware rankings and league benchmarks
 
 **Why this matters:**
-Hits reflect system style — not just effort.
+Hits reflect team system style.
 
 **Example insight:**
-> The Oilers rank last in hits/60 when tied at 5v5, indicating a rush-based system — opposing teams can adjust defensive structure accordingly.
+> The Oilers rank last in hits/60 when tied at 5v5, indicating a rush-based system - opposing teams can adjust defensive structure accordingly.
 
 ![Hits Profile](dashboards/HitsPer60TiedEvenStrength.png)
 
