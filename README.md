@@ -10,7 +10,7 @@ Built on an Azure-based lakehouse architecture (ADLS Gen2 + Databricks + Delta L
 
 This project focuses on how modern data engineering and analytics can support hockey operations.
 
-Raw NHL data is ingested from public APIs, processed through a Medallion architecture (Bronze → Silver → Gold), and surfaced through interactive Power BI dashboards designed for real decision-making—not just visualization.
+Raw NHL data is ingested from public APIs, processed through a Medallion architecture (Bronze → Silver → Gold), and surfaced through interactive Power BI dashboards designed for real decision-making instead of just visualization.
 
 The platform enables users to:
 
