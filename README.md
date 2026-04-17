@@ -1,24 +1,30 @@
 # Hockey Lakehouse Analytics Platform
 
-An end-to-end hockey analytics platform built using a lakehouse architecture to transform raw NHL event data into interactive performance insights.
+An end-to-end hockey analytics platform that transforms raw NHL event data into actionable insights for coaching, scouting, and game strategy.
 
-This project demonstrates modern data engineering practices including Medallion architecture, structured pipelines, data quality validation, and BI-ready semantic modeling.
+Built on an Azure-based lakehouse architecture (ADLS Gen2 + Databricks + Delta Lake), this project simulates a real-world hockey analytics workflow—where raw data is ingested, modeled, and turned into decision-ready dashboards.
 
 ---
 
 ## Project Overview
 
-This project explores how a modern data platform can support hockey operations and analytics workflows.
+This project focuses on how modern data engineering and analytics can support hockey operations.
 
-Raw hockey data is ingested from NHL web APIs, processed through a structured pipeline (Bronze → Silver → Gold), and surfaced through Power BI dashboards and ad hoc analysis.
+Raw NHL data is ingested from public APIs, processed through a Medallion architecture (Bronze → Silver → Gold), and surfaced through interactive Power BI dashboards designed for real decision-making—not just visualization.
 
-The platform enables insights into:
-- goalie performance vs league benchmarks
-- player penalty tendencies
-- shot selection and accuracy
-- team physical play and situational behavior
+The platform enables users to:
 
----
+- identify how to exploit goalie weaknesses (shot type + location)
+- evaluate player discipline and situational risk (penalties)
+- analyze shooting efficiency and tendencies (miss maps)
+- understand team identity and strategy (hits, playstyle)
+
+Each dashboard is built to answer a specific hockey question, combining:
+- contextual filtering (game state, strength state, thresholds)
+- league benchmarking
+- interactive exploration
+
+The result is a system that mirrors how analysts, coaches, and management teams actually use data to gain a competitive edge.
 
 ## Architecture
 
@@ -28,6 +34,8 @@ The platform follows a **lakehouse Medallion Architecture**:
 - **Silver** → cleaned, standardized, and validated datasets
 - **Gold** → curated fact tables and KPI aggregates
 - **BI Layer** → semantic views + Power BI modeling
+
+This diagram illustrates the end-to-end data flow from NHL APIs through the Medallion lakehouse architecture (Bronze → Silver → Gold) and into Power BI.
 
 ![Architecture](architecture/lakehouse_architecture.png)
 
@@ -56,86 +64,122 @@ Interactive dashboards provide a high-level view of player and team performance 
 
 ![Dashboard Overview](dashboards/powerbi_overview.png)
 
----
+---## Core KPI Dashboards
 
-## Core KPI Dashboards
+These dashboards are designed to go beyond surface-level statistics and instead answer real hockey questions:
+
+- Where should we attack this goalie?
+- Which players are discipline risks?
+- How should we adjust our system against this team?
+- Where are players effective vs ineffective?
+
+Each dashboard combines filtering, context, and league comparison to turn raw data into actionable insight.
+
+---
 
 ### 1. Goalie Save % vs League by Shot Type
 
-Compares goalie performance against league averages across shot types.
+Evaluates how a goalie performs against different shot types relative to league averages.
 
-- Save % breakdown by shot type (wrist, slap, tip-in, etc.)
-- Difference vs league benchmarks
-- Shot volume context to assess reliability
+- Breaks down save % by shot type (wrist, slap, tip-in, deflected, etc.)
+- Compares directly to league benchmarks
+- Includes shot volume thresholds to ensure reliability
+- Supports interactive filtering (clicking shot types updates all visuals)
+
+**Why this matters:**
+Not all goalies are beaten the same way — this reveals *how* to score on them.
+
+**Example insight:**
+> Opposing shooters: prioritize deflections against Hellebuyck — his save % drops significantly below league average in those situations.
 
 ![Goalie SV%](dashboards/goaliesv.png)
 
-[Deep dive: How to use this dashboard](docs/kpi_deep_dives/goalie_sv_vs_league.md)
+👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/goalie_sv_vs_league.md)
 
 ---
 
 ### 2. Penalty Profile: Player vs League Tendencies
 
-Analyzes how a player takes and draws penalties relative to league norms.
+Analyzes a player's penalty behavior across context, not just totals.
 
-- Zone-based penalty distribution (Offensive / Defensive / Neutral)
-- Game state analysis (leading, tied, trailing)
-- Penalty type breakdown vs league averages
-- Interactive filtering across situations
+- Zone-based penalty distribution (offensive, defensive, neutral)
+- Game state impact (leading, tied, trailing)
+- Penalty type comparison vs league norms
+- Cross-filtering enables multi-dimensional analysis
+
+**Why this matters:**
+Penalties are situational — this shows *when, where, and why* players become liabilities.
+
+**Example insight:**
+> A.J. Greer takes excessive offensive-zone penalties and commits more penalties when leading — a high-risk, undisciplined profile that could impact team success.
 
 ![Penalty Profile](dashboards/penaltiesKPI.png)
 
-[Deep dive: How to use this dashboard](docs/kpi_deep_dives/penalties_kpi.md)
+👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/penalties_kpi.md)
 
 ---
 
 ### 3. Goalie Shot-Location Performance
 
-Visualizes where a goalie concedes goals most frequently across the net.
+Identifies where a goalie is vulnerable — both in absolute terms and relative to league averages.
 
-- Spatial goal rate distribution
-- Identification of high-risk scoring areas
-- Shot volume represented through bin sizing
+- Left chart: raw goal rate by location
+- Right chart: performance vs league baseline (true strengths/weaknesses)
+- Adjustable bin thresholds to control noise
+- Spatial analysis across the offensive zone
+
+**Why this matters:**
+Raw shot maps are misleading — this isolates *true weaknesses* compared to other goalies.
+
+**Example insight:**
+> Opponents should attack Oettinger from the left circle — he allows more goals than league average from that area, despite being strong in the slot.
 
 ![Goalie Shot Location](dashboards/kpiGoalieZones.png)
 
-[Deep dive: How to use this dashboard](docs/kpi_deep_dives/goalie_location.md)
+👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/goalie_location.md)
 
 ---
 
 ### 4. Shot Miss Map
 
-Visualizes where a player misses the net more or less frequently.
+Visualizes where players miss the net vs shoot accurately, with filtering to control noise.
 
-- Highlights shooting accuracy trends by location
-- Reveals player tendencies (e.g., left/right bias)
-- Uses binning and thresholds to reduce noise
+- Spatial miss rate visualization (blue = misses, red = accuracy)
+- Dot size reflects shot volume
+- Adjustable thresholds for cleaner insights
+- Player-specific shooting tendencies
+
+**Why this matters:**
+Shot selection matters — this reveals where players are effective vs inefficient.
+
+**Example insight:**
+> John Carlson struggles to hit the net from the blue line but is highly accurate in the right circle — coaches can adjust shot selection accordingly.
 
 ![Shot Miss Map](dashboards/Player_Shot_Miss_Map.png)
 
-[Deep dive: How to use this dashboard](docs/kpi_deep_dives/shot_miss_map.md)
+👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/shot_miss_map.md)
 
 ---
 
 ### 5. Hits per 60: Team vs League
 
-Compares team physical play against league benchmarks.
+Compares team physical play across game situations and league context.
 
-- Hits per 60 by game state (winning, tied, losing)
-- Strength state filtering (EV, PP, PK)
-- Division-level comparisons
+- Hits/60 filtered by game state (winning, tied, losing)
+- Strength state filtering (5v5, PP, PK, 3v3 OT, etc.)
+- Division comparison to evaluate team identity
+- Context-aware rankings and league benchmarks
+
+**Why this matters:**
+Hits reflect system style — not just effort.
+
+**Example insight:**
+> The Oilers rank last in hits/60 when tied at 5v5, indicating a rush-based system — opposing teams can adjust defensive structure accordingly.
 
 ![Hits Profile](dashboards/HitsPer60TiedEvenStrength.png)
 
-[Deep dive: How to use this dashboard](docs/kpi_deep_dives/hits_per_60.md)
+👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/hits_per_60.md)
 
----
-
-## Dashboard Deep Dives
-
-Each dashboard includes interactive filtering, contextual comparisons, and insight-driven design.
-
-[View detailed breakdowns](docs/dashboard_breakdowns.md)
 
 ---
 
@@ -200,7 +244,7 @@ pipelines/
     Databricks notebooks and transformation logic
 
 docs/
-    Data model, pipeline flow, and design documentation
+    KPI deep dives, Data model, pipeline flow, and design documentation
 ```
 
 ---
