@@ -1,4 +1,4 @@
-# Shot Miss Map — Deep Dive
+# Shot Miss Map - Deep Dive
 
 ## Overview
 
