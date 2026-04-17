@@ -70,6 +70,8 @@ Compares goalie performance against league averages across shot types.
 
 ![Goalie SV%](dashboards/goaliesv.png)
 
+[Deep dive: How to use this dashboard](docs/kpi_deep_dives/goalie_sv_vs_league.md)
+
 ---
 
 ### 2. Penalty Profile: Player vs League Tendencies
@@ -83,6 +85,8 @@ Analyzes how a player takes and draws penalties relative to league norms.
 
 ![Penalty Profile](dashboards/penaltiesKPI.png)
 
+[Deep dive: How to use this dashboard](docs/kpi_deep_dives/penalties_kpi.md)
+
 ---
 
 ### 3. Goalie Shot-Location Performance
@@ -94,6 +98,8 @@ Visualizes where a goalie concedes goals most frequently across the net.
 - Shot volume represented through bin sizing
 
 ![Goalie Shot Location](dashboards/kpiGoalieZones.png)
+
+[Deep dive: How to use this dashboard](docs/kpi_deep_dives/goalie_location.md)
 
 ---
 
@@ -107,6 +113,8 @@ Visualizes where a player misses the net more or less frequently.
 
 ![Shot Miss Map](dashboards/Player_Shot_Miss_Map.png)
 
+[Deep dive: How to use this dashboard](docs/kpi_deep_dives/shot_miss_map.md)
+
 ---
 
 ### 5. Hits per 60: Team vs League
@@ -119,13 +127,15 @@ Compares team physical play against league benchmarks.
 
 ![Hits Profile](dashboards/HitsPer60TiedEvenStrength.png)
 
+[Deep dive: How to use this dashboard](docs/kpi_deep_dives/hits_per_60.md)
+
 ---
 
 ## Dashboard Deep Dives
 
 Each dashboard includes interactive filtering, contextual comparisons, and insight-driven design.
 
-👉 [View detailed breakdowns](docs/dashboard_breakdowns.md)
+[View detailed breakdowns](docs/dashboard_breakdowns.md)
 
 ---
 
