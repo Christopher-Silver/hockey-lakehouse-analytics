@@ -2,7 +2,7 @@
 
 An end-to-end hockey analytics platform that transforms raw NHL event data into actionable insights for coaching, scouting, and game strategy.
 
-Built on an Azure-based lakehouse architecture (ADLS Gen2 + Databricks + Delta Lake), this project simulates a real-world hockey analytics workflow—where raw data is ingested, modeled, and turned into decision-ready dashboards.
+Built on an Azure-based lakehouse architecture (ADLS Gen2 + Databricks + Delta Lake), this project simulates a real-world hockey analytics workflow; where raw data is ingested, modeled, and turned into decision-ready dashboards.
 
 ---
 
