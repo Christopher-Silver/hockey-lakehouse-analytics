@@ -1,45 +1,50 @@
 # Hockey Lakehouse Analytics Platform
 
-An end-to-end hockey analytics platform built using a lakehouse architecture to transform raw event data into interactive performance insights.
+An end-to-end hockey analytics platform built using a lakehouse architecture to transform raw NHL event data into interactive performance insights.
 
-The system demonstrates modern data engineering practices including medallion architecture, structured data pipelines, and analytics dashboards.
+This project demonstrates modern data engineering practices including Medallion architecture, structured pipelines, data quality validation, and BI-ready semantic modeling.
 
 ---
 
 ## Project Overview
 
-This project was built to explore how modern data platforms can support sports analytics workflows.
+This project explores how a modern data platform can support hockey operations and analytics workflows.
 
-Raw hockey event data is ingested and processed through a structured data pipeline before being analyzed through interactive dashboards.
+Raw hockey data is ingested from NHL web APIs, processed through a structured pipeline (Bronze → Silver → Gold), and surfaced through Power BI dashboards and ad hoc analysis.
 
-The platform enables insights into player performance, shot patterns, and goalie tendencies.
+The platform enables insights into:
+- goalie performance vs league benchmarks
+- player penalty tendencies
+- shot selection and accuracy
+- team physical play and situational behavior
 
 ---
 
 ## Architecture
 
-The platform follows a **lakehouse medallion architecture**:
+The platform follows a **lakehouse Medallion Architecture**:
 
-Bronze Layer  
-Raw ingested event data.
-
-Silver Layer  
-Cleaned and transformed datasets optimized for analysis.
-
-Gold Layer  
-Aggregated analytics tables powering dashboards and performance insights.
+- **Bronze** → raw API ingestion (JSON + Delta)
+- **Silver** → cleaned, standardized, and validated datasets
+- **Gold** → curated fact tables and KPI aggregates
+- **BI Layer** → semantic views + Power BI modeling
 
 ![Architecture](architecture/lakehouse_architecture.png)
+
+👉 For a detailed breakdown, see:  
+**[Pipeline Flow](docs/pipeline_flow.md)**  
+**[Data Model Overview](docs/data_model_overview.md)**
 
 ---
 
 ## Key Features
 
 • Event-level hockey data processing  
-• Structured transformation pipelines  
-• Aggregated analytics tables  
+• Structured Medallion pipelines (Bronze → Silver → Gold)  
+• Curated fact tables and KPI aggregates  
+• Hybrid BI layer (Databricks + Power BI)  
+• Automated data quality validation  
 • Interactive Power BI dashboards  
-• Visual shot maps and performance insights  
 
 ---
 
@@ -47,66 +52,70 @@ Aggregated analytics tables powering dashboards and performance insights.
 
 ### Performance Overview
 
-Interactive dashboards provide a high-level overview of player and team performance metrics.
+Interactive dashboards provide a high-level view of player and team performance across multiple contexts.
 
 ![Dashboard Overview](dashboards/powerbi_overview.png)
 
-### 🎯 Shot Miss Map
+---
 
-Visualizes where a player misses the net more or less frequently across the offensive zone.
+## Core KPI Dashboards
 
-- Identifies accuracy trends by location
-- Highlights shooting tendencies (left/right bias, high-danger areas)
-- Uses binning + filtering to reduce noise
+### 1. Goalie Save % vs League by Shot Type
 
-![Shot Miss Map](dashboards/Player_Shot_Miss_Map.png)
+Compares goalie performance against league averages across shot types.
+
+- Save % breakdown by shot type (wrist, slap, tip-in, etc.)
+- Difference vs league benchmarks
+- Shot volume context to assess reliability
+
+![Goalie SV%](dashboards/goaliesv.png)
 
 ---
 
-### Penalty Profile: Player vs League Tendencies
+### 2. Penalty Profile: Player vs League Tendencies
 
-Compares a player’s penalty behavior against league averages across multiple contexts.
+Analyzes how a player takes and draws penalties relative to league norms.
 
-- Zone-based penalty distribution (O/D/N zone)
+- Zone-based penalty distribution (Offensive / Defensive / Neutral)
 - Game state analysis (leading, tied, trailing)
-- Penalty type breakdown vs league norms
-- Fully interactive filtering for situational insights
+- Penalty type breakdown vs league averages
+- Interactive filtering across situations
 
 ![Penalty Profile](dashboards/penaltiesKPI.png)
 
 ---
 
-### Goalie Shot-Location Performance
+### 3. Goalie Shot-Location Performance
 
-Analyzes where a goalie concedes goals most frequently across the net.
+Visualizes where a goalie concedes goals most frequently across the net.
 
 - Spatial goal rate distribution
-- Identifies high-risk scoring areas
+- Identification of high-risk scoring areas
 - Shot volume represented through bin sizing
 
 ![Goalie Shot Location](dashboards/kpiGoalieZones.png)
 
 ---
 
-### Goalie Save % vs League by Shot Type
+### 4. Shot Miss Map
 
-Breaks down goalie performance by shot type compared to league averages.
+Visualizes where a player misses the net more or less frequently.
 
-- Save % comparison across shot types (wrist, slap, tip-in, etc.)
-- Difference vs league to highlight strengths/weaknesses
-- Shot volume context included for reliability
+- Highlights shooting accuracy trends by location
+- Reveals player tendencies (e.g., left/right bias)
+- Uses binning and thresholds to reduce noise
 
-![Goalie SV%](dashboards/goaliesv.png)
+![Shot Miss Map](dashboards/Player_Shot_Miss_Map.png)
 
 ---
 
-### Hits Profile: Team vs League
+### 5. Hits per 60: Team vs League
 
-Compares team physical play (hits/60) against league benchmarks across contexts.
+Compares team physical play against league benchmarks.
 
-- Game state breakdown (winning, tied, losing)
+- Hits per 60 by game state (winning, tied, losing)
 - Strength state filtering (EV, PP, PK)
-- Division-level comparisons for relative performance
+- Division-level comparisons
 
 ![Hits Profile](dashboards/HitsPer60TiedEvenStrength.png)
 
@@ -118,31 +127,43 @@ Each dashboard includes interactive filtering, contextual comparisons, and insig
 
 👉 [View detailed breakdowns](docs/dashboard_breakdowns.md)
 
-...
+---
 
 ## Pipelines
 
-This project uses a Medallion lakehouse design in Azure Databricks to transform raw NHL data into analytics-ready outputs for reporting and dashboarding.
+This project uses a Medallion lakehouse design in Azure Databricks to transform raw NHL data into analytics-ready outputs.
 
 ### Bronze
-Bronze pipelines ingest raw schedule and play-by-play data from external hockey sources and store it with ingestion metadata for reproducibility and lineage.
+Raw ingestion from NHL web APIs (schedule and play-by-play).  
+Uses a mix of append and merge patterns depending on ingestion grain.
 
 ### Silver
-Silver pipelines clean and standardize event, player, and roster data into validated, joinable tables with consistent keys and hockey-specific business logic applied.
+Data is cleaned, standardized, and conformed into joinable tables.  
+Primarily uses merge-based updates for incremental processing.
 
 ### Gold
-Gold pipelines build curated fact tables, KPI aggregates, BI-facing semantic views, and automated data quality checks to support Power BI dashboards and ad hoc hockey analytics.
+Curated fact tables and KPI aggregates are built for analytics and reporting.  
+Uses overwrite-based rebuilds for consistency and simplicity.
 
-### Example pipeline capabilities
-- External API ingestion and incremental loading
-- Event normalization and schema standardization
-- Player and roster conformance
-- Fact table construction for shots, penalties, and hits
-- KPI generation for goalie, shooting, penalty, and physical play analysis
-- BI-friendly serving views for downstream reporting
-- Automated data quality validation and failure logging
+### BI Layer
+Databricks provides BI-friendly views, while Power BI handles lightweight semantic modeling (dimensions, measures, relationships).
 
-Representative transformation scripts are available in the `pipelines/` directory.
+👉 For full pipeline details:  
+**[Pipeline Flow Documentation](docs/pipeline_flow.md)**
+
+---
+
+## Data Model
+
+The data model follows a hybrid dimensional design:
+
+- Core dimensions (player, team) are materialized in Gold
+- Fact tables capture event-level data
+- KPI tables provide pre-aggregated analytics outputs
+- Some semantic dimensions are defined in Power BI
+
+👉 See full model breakdown:  
+**[Data Model Overview](docs/data_model_overview.md)**
 
 ---
 
@@ -163,31 +184,34 @@ architecture/
     Architecture diagrams for the platform
 
 dashboards/
-    Screenshots of Power BI dashboards
+    Power BI dashboard screenshots
 
 pipelines/
-    Example transformation logic
-
-sql/
-    Example analytics queries
+    Databricks notebooks and transformation logic
 
 docs/
-    Data models and design documentation
+    Data model, pipeline flow, and design documentation
 ```
 
 ---
 
 ## Notes
 
-This repository is a **portfolio case study** of the analytics platform.
+This repository is a **portfolio case study** of a hockey analytics platform.
 
-Certain production datasets and proprietary assets are not included, but the architecture, representative transformations, and dashboard outputs are demonstrated here.
+It demonstrates:
+- end-to-end pipeline design
+- structured data modeling
+- analytics-ready data preparation
+- dashboard-driven insights
+
+Some production elements (e.g., full datasets, orchestration) are simplified or simulated.
 
 ---
 
 ## Future Improvements
 
-Real-time data ingestion  
-Automated pipeline orchestration  
-Expanded player tracking analytics  
-Advanced predictive models
+- Automated orchestration using Azure Data Factory  
+- Scheduled pipeline execution  
+- Expanded feature tables for advanced analytics  
+- Player tracking and advanced metrics 
