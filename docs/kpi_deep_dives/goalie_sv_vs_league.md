@@ -1,4 +1,4 @@
-# Goalie Save % vs League by Shot Type — Deep Dive
+# Goalie Save % vs League by Shot Type - Deep Dive
 
 ## Overview
 
@@ -23,7 +23,7 @@ It is designed to:
 
 **Goalie Selection**
 - Search and select any goalie
-- No restrictions — full player pool available
+- No restrictions (full goalie pool available)
 
 ---
 
