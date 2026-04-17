@@ -94,7 +94,7 @@ Not all goalies are beaten the same way. This dashboard reveals *how* to score o
 
 ![Goalie SV%](dashboards/goaliesv.png)
 
-👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/goalie_sv_vs_league.md)
+👉 [Deep dive into this dashboard](docs/kpi_deep_dives/goalie_sv_vs_league.md)
 
 ---
 
@@ -115,7 +115,7 @@ Penalties are situational. This dashboard shows *when, where, and why* players b
 
 ![Penalty Profile](dashboards/penaltiesKPI.png)
 
-👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/penalties_kpi.md)
+👉 [Deep dive into this dashboard](docs/kpi_deep_dives/penalties_kpi.md)
 
 ---
 
@@ -136,7 +136,7 @@ Raw shot maps are misleading. This dashboard isolates *true weaknesses* compared
 
 ![Goalie Shot Location](dashboards/kpiGoalieZones.png)
 
-👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/goalie_location.md)
+👉 [Deep dive into this dashboard](docs/kpi_deep_dives/goalie_location.md)
 
 ---
 
@@ -157,7 +157,7 @@ Shot selection matters. This dashboard reveals where players are effective vs in
 
 ![Shot Miss Map](dashboards/Player_Shot_Miss_Map.png)
 
-👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/shot_miss_map.md)
+👉 [Deep dive into this dashboard](docs/kpi_deep_dives/shot_miss_map.md)
 
 ---
 
@@ -178,7 +178,7 @@ Hits reflect team system style.
 
 ![Hits Profile](dashboards/HitsPer60TiedEvenStrength.png)
 
-👉 [Deep dive: How to use this dashboard](docs/kpi_deep_dives/hits_per_60.md)
+👉 [Deep dive into this dashboard](docs/kpi_deep_dives/hits_per_60.md)
 
 
 ---
