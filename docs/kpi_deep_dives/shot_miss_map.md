@@ -101,11 +101,11 @@ This dashboard demonstrates that:
 The "Min Shots in Season" filter controls:
 - which players appear in the selection list
 
-Lower threshold:
+Lower threshold (second Kempe image):
 - more players available
 - includes lower-volume shooters
 
-Higher threshold:
+Higher threshold (first Kempe image):
 - restricts to high-volume shooters
 - improves reliability of analysis
 
